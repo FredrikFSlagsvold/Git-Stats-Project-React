@@ -10,7 +10,7 @@ export async function getProfile () {
 //brnaches in the project, funker ikke?
 export async function getBranches() {
     const branches = await axiosInstance.get("repository/branches/")
-    console.log("brnaches kjører")
+    console.log("branchen kjører")
 }
 
 //issues in the project
