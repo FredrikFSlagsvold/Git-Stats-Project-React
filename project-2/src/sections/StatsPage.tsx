@@ -1,57 +1,69 @@
 import React, { useEffect, useState } from "react";
-import { getBranches, getIssues, getProfile } from "../utils/fetch";
+import {getBranches, getCommits, getIssues } from "../utils/fetch";
 
-type User ={
-    name: string
-}
-
-type Branches= {
-    name: string
-}
 
 type Issues ={
     title: string
     
 }
 
+type Branches={
+    name: string
+}
+
+
 export default function StatsPage(){    
-    const [users, setUsers] = useState<User[]>([])
-    const [Issues, setIssues] = useState<Issues[]>([])
+    const [issues, setIssues] = useState<Issues[]>([])
+    const [commits, setCommits] = useState<Issues[]>([])
     const [branches, setBranches] = useState<Branches[]>([])
 
-    const fetchUsers = ()=>{
-        getProfile().then((res)=> setUsers(res))
-    }
 
-    // const fetchBranches = ()=>{
-    //     getBranches().then()
-    // }
 
     const fetchIssues = () => {
         getIssues().then((res)=> setIssues(res))
     }
+    const fetchCommits = () => {
+        getCommits().then((res)=> setCommits(res))
+    }
+    const fetchBranches = () =>{
+        getBranches().then((res)=> setBranches(res))
+    }
 
     useEffect(()=>{
-        fetchUsers();
-        // fetchBranches();
         fetchIssues();
+        fetchCommits();
+        fetchBranches();
     }, [])
 
-
-
-
+    
     return(<>
-    {/* <div>
-    {users.map((user,index)=> {
-        return<p key={index}>{user.name}</p>
-        })}
+        <div className="stats">
+            <h3>Issues created: {issues.length}</h3>
+            {issues.map((data,index)=> {
+                return(
+                    <li key={index}>{data.title}</li>
+                )
+            })}
+        </div>
 
-    </div> */}
-    <div>
-        {Issues.map((issues,index)=> {
-            return(<p key={index}>{issues.title}</p>)
-        })}
-    </div>
+        <div>
+            <h3>Commits: {commits.length}</h3>
+            {commits.map((data,index)=>{
+                return(
+                    <li key={index}>{data.title}</li>
+                )
+            })}
+        </div>
+
+        <div>
+            <h3>Branches: {branches.length}</h3>
+            {branches.map((data,index)=>{
+                return(
+                    <li key={index}>{data.name}</li>
+                )
+            })}
+        </div>
+
 
     </>)
 }
