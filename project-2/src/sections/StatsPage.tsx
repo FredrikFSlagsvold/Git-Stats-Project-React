@@ -18,7 +18,6 @@ export default function StatsPage(){
     const [branches, setBranches] = useState<Branches[]>([])
 
 
-
     const fetchIssues = () => {
         getIssues().then((res)=> setIssues(res))
     }
@@ -63,8 +62,6 @@ export default function StatsPage(){
                 )
             })}
         </div>
-
-
     </>)
 }
 

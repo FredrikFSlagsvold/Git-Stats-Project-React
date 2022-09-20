@@ -1,16 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
+import LoginPage from './LoginPage';
 import StatsPage from './sections/StatsPage';
-import { getProfile } from './utils/fetch';
+
+
 
 function App() {
-  getProfile()
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [id, setId] = useState(0);
+  const [token, setToken] = useState("");
+
+    console.log("id",id)
+    console.log("token",token)
+      
+  
   return (
     <div >
-      <header >
-        
-      </header>
-    
-      <StatsPage/>
+      {isLoggedIn && 
+      <StatsPage/>}
+      {!isLoggedIn && <LoginPage id={setId} token={setToken} />}
     </div>
   );
 }
