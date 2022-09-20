@@ -6,6 +6,7 @@ import "./styles.css";
 type LoginPageProps= {
     id: Dispatch<SetStateAction<number>>
     token: Dispatch<SetStateAction<string>>
+    onSubmit: void
 }
 
 
@@ -29,6 +30,7 @@ export default function LoginPage({
               placeholder="access key"
               onChange={event => token(event.target.value)}
             />
+            <button type="button" onClick={console.log}>Legg til</button>
           </form>
       </div>
     </div>
