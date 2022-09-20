@@ -4,20 +4,16 @@ import {getBranches, getCommits, getIssues } from "../utils/fetch";
 
 type Issues ={
     title: string
-    
 }
 
 type Branches={
     name: string
 }
 
-
 export default function StatsPage(){    
     const [issues, setIssues] = useState<Issues[]>([])
     const [commits, setCommits] = useState<Issues[]>([])
     const [branches, setBranches] = useState<Branches[]>([])
-
-
 
     const fetchIssues = () => {
         getIssues().then((res)=> setIssues(res))
