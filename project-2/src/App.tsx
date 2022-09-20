@@ -1,11 +1,16 @@
 import React from 'react';
+import StatsPage from './sections/StatsPage';
+import { getProfile } from './utils/fetch';
 
 function App() {
+  getProfile()
   return (
     <div >
       <header >
-Hei
+        
       </header>
+    
+      <StatsPage/>
     </div>
   );
 }
