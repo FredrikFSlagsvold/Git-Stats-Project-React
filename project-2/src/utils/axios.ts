@@ -7,7 +7,6 @@ export default axios.create({
     baseURL: URL,
     timeout: 3000,
     headers: {
-        
-
+        Authorization: accessToken
     }
 })
