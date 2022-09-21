@@ -1,7 +1,6 @@
-import { axiosInstance } from 'src/utils/axios.ts'
+import { axiosInstance } from "/Users/fredrikfs/Documents/NTNU/Ingeniørvitenskap og IKT/3. Klasse/Webutvikling/Prosjekt 2/project-2/src/utils/axios"
 
-async function getMergeRequests() {
+export async function getMergeRequests() {
     const mergeRequests = await axiosInstance.get("/merge_requests");
-    return mergeRequests;
-    
+    return mergeRequests.data;
 }
