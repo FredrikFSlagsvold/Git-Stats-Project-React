@@ -1,20 +1,47 @@
 import axios, { AxiosInstance } from "axios";
-import React, { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import "./styles.css";
+import axiosInstance from "./utils/axios";
 
 
 type LoginPageProps= {
-    id: Dispatch<SetStateAction<number>>
-    token: Dispatch<SetStateAction<string>>
-    onSubmit: void
+    isLoggedIn: Dispatch<SetStateAction<boolean>>
+
 }
 
 
 export default function LoginPage({
-    id,
-    token,
+    isLoggedIn,
   }: LoginPageProps){
+    const [id, setId] = useState("");
+    const [token, setToken] = useState("");
 
+    const checkApi=async ()=>{
+      localStorage.setItem("id", id)
+      localStorage.setItem("token", token)
+
+      try{
+        const testAxiosInstance = axios.create(
+          {
+          baseURL: "https://gitlab.stud.idi.ntnu.no/api/v4/projects/" + id,
+          timeout: 3000,
+          headers:{
+              Authorization: "Bearer " +token
+          }
+          });
+        
+        isLoggedIn(true)
+        console.log(await testAxiosInstance.get("members"))
+      }catch{
+        console.log("feilet")
+      }
+    }
+
+    useEffect(()=>{
+      console.log("hei")
+      console.log(axiosInstance.getUri())
+    }, [id])
+  
   return (
     <div className="App">
       <div className="login-container">
@@ -23,14 +50,14 @@ export default function LoginPage({
             <input
               type="number"
               placeholder="prosject id"
-              onChange={event => id(event.target.valueAsNumber)}
+              onChange={event => setId(event.target.value)}
             />
             <input
               type="password"
               placeholder="access key"
-              onChange={event => token(event.target.value)}
+              onChange={event => setToken(event.target.value)}
             />
-            <button type="button" onClick={console.log}>Legg til</button>
+            <button type="button" onClick={checkApi}>Legg til</button>
           </form>
       </div>
     </div>
