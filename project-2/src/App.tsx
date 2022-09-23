@@ -1,14 +1,13 @@
 import React from 'react';
 import { getMergeRequests } from './utils/fetch';
-import Issue from './utils/Issue';
+import Page from './utils/Page';
 
 function App() {
-  const issue = getMergeRequests()
   return (
     <div >
       <header >
 Hei,
-      <Issue issue = {issue} />
+      <Page />
       </header>
     </div>
   );
