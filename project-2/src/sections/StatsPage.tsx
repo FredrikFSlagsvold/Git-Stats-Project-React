@@ -10,7 +10,11 @@ type Branches={
     name: string
 }
 
-export default function StatsPage(){    
+type StatsPageProps={
+    person: number
+}
+
+export default function StatsPage({person}: StatsPageProps){    
     const [issues, setIssues] = useState<Issues[]>([])
     const [commits, setCommits] = useState<Issues[]>([])
     const [branches, setBranches] = useState<Branches[]>([])
@@ -59,8 +63,6 @@ export default function StatsPage(){
                 )
             })}
         </div>
-
-
     </>)
 }
 

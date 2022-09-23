@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import StatsPage from './sections/StatsPage';
 import Header from './components/Header';
 
 function App() {
+
+
+const [personID, setPersonID] = useState(0);
+
+
   return (
     <div >
-      <Header/>
-      <StatsPage/>
+      <Header setPersonID={setPersonID} id={0}/>
+  
+      <StatsPage person={personID}/>
     </div>
   );
 }
