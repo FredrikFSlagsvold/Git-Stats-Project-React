@@ -9,3 +9,8 @@ export async function getIssues(){
     const issues = await axiosInstance.get("issues");
     return issues.data;
 }
+
+export async  function getCommits() {
+    const commits = await axiosInstance.get("repository/commits")
+    return commits.data;
+}
