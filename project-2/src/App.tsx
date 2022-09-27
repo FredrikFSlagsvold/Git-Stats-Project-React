@@ -7,7 +7,7 @@ import StatsPage from './sections/StatsPage';
 
 function App() {
 
-  const [isLoggedIn, setIsLoggedIn] = useState(true)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   console.log(isLoggedIn)
   return (
     <div >

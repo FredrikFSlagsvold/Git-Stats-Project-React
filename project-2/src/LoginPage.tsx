@@ -1,4 +1,4 @@
-import axios, { AxiosInstance } from "axios";
+import axios from "axios";
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import "./styles.css";
 import axiosInstance from "./utils/axios";
@@ -6,7 +6,6 @@ import axiosInstance from "./utils/axios";
 
 type LoginPageProps= {
     isLoggedIn: Dispatch<SetStateAction<boolean>>
-
 }
 
 
