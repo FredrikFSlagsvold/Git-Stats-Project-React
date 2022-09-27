@@ -1,4 +1,3 @@
-import { wrap } from "module";
 import {useState, useEffect } from "react"
 import { getCommits } from '../utils/fetch';
 

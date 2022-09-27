@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { Doughnut } from "react-chartjs-2";
+import { useState, useEffect } from "react";
 import { getMergeRequests, getIssues} from '../utils/fetch';
-import CommitsInfo from "./CommitsInfo";
-import DouchnutChart from "./Doughnut";
+import BarChart from "./BarChart";
+import DoughnutChart from "./Doughnut";
 
 type MergeRequest = {
     id: string,
@@ -30,7 +29,7 @@ export default function Page() {
 
     return( 
         <div>
-            <h1>Merge requests: {mergeRequests.length}</h1>
+            {/* <h1>Merge requests: {mergeRequests.length}</h1>
             <p> {mergeRequests.map((mergeRequest, index) => { 
                 return(
                     <h3 key = {index}>{mergeRequest.description}</h3>
@@ -44,9 +43,10 @@ export default function Page() {
                     <h3 key = {index}>{issue.title}</h3>
                 )
                 })}
-            </p>
-            <CommitsInfo/>
-            <DouchnutChart />
+            </p> */}
+            {/* <CommitsInfo/> */}
+            <BarChart/>
+            <DoughnutChart/>
             
           
 
@@ -56,7 +56,7 @@ export default function Page() {
                 {filtered.title}
             </li>
         ))} */}
-        
+
         </div>
     )
 }

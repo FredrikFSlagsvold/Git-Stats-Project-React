@@ -1,24 +1,7 @@
 import {useState, useEffect} from 'react';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
-import { Bar } from 'react-chartjs-2';
+import { Bar, Line } from 'react-chartjs-2';
 import { getCommits } from '../utils/fetch';
-
-ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend
-  );
+import 'chart.js/auto';
 
 
 type Commit = {
@@ -52,30 +35,25 @@ export default function BarChart() {
             text: 'Chart.js Bar Chart',
           },
         },
-      };
+    };
       
-      const labels = ["January", "February", "March", "April", "May", "June", "July"];
 
       const data = {
-   
+        labels: ["January", "February", "March", "April", "May", "June", "July"],
         datasets: [
           {
             label: 'Dataset 1',
-            // data: commits.filter((commit) => commit.author_name.includes('Fredrik')).length,
             data: [100, 340, 605, 908, 506, 807, 506, 78],
-
             backgroundColor: 'rgba(255, 99, 132, 0.5)',
           },
           {
             label: 'Dataset 2',
             data: [100, 340, 605, 908, 506, 807, 506, 78],
-            // data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-            backgroundColor: 'rgba(0,0,0,0)',
+            backgroundColor: 'rgba(255,99,132,0.5)',
           },
         ],
       };
 
-
-    return <Bar data = {data} options = {options}></Bar>
+    return <div><Bar options = {options} data = {data}  /> </div>
 
 }

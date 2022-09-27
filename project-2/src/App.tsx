@@ -1,7 +1,6 @@
-import React from 'react';
-import { getMergeRequests } from './utils/fetch';
+import { Bar } from 'react-chartjs-2';
+import BarChart from './utils/BarChart';
 import Page from './utils/Page';
-import Bar from './utils/BarChart';
 
 function App() {
   return (
