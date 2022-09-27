@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
+import LoginPage from './LoginPage';
 import StatsPage from './sections/StatsPage';
-import { getProfile } from './utils/fetch';
+// import axiosInstance from './utils/axios';
+
+
 
 function App() {
-  getProfile()
+
+  const [isLoggedIn, setIsLoggedIn] = useState(true)
+  console.log(isLoggedIn)
   return (
     <div >
-      <header >
-        
-      </header>
-    
-      <StatsPage/>
+      {sessionStorage.getItem("isLoggedIn") === "true" ? 
+      <StatsPage/> :
+      <LoginPage isLoggedIn={setIsLoggedIn} />}
     </div>
   );
 }

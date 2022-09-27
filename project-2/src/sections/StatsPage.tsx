@@ -18,7 +18,6 @@ export default function StatsPage(){
     const [branches, setBranches] = useState<Branches[]>([])
 
 
-
     const fetchIssues = () => {
         getIssues().then((res)=> setIssues(res))
     }
@@ -36,36 +35,37 @@ export default function StatsPage(){
     }, [])
 
     
-    return(<>
-        <div className="stats">
-            <h3>Issues created: {issues.length}</h3>
+    return(<div className="flex flex-row p-16 text-left">
+        <div className="px-8">
+
+            <h1>Issues created: {issues.length}</h1>
             {issues.map((data,index)=> {
                 return(
-                    <li key={index}>{data.title}</li>
+                    <li className="mt-4" key={index}>{data.title}</li>
                 )
             })}
         </div>
 
-        <div>
-            <h3>Commits: {commits.length}</h3>
+        <div className="px-8">
+            <h1>Commits: {commits.length}</h1>
             {commits.map((data,index)=>{
                 return(
-                    <li key={index}>{data.title}</li>
+                    <li className="mt-4" key={index}>{data.title}</li>
                 )
             })}
         </div>
 
-        <div>
-            <h3>Branches: {branches.length}</h3>
+        <div className="px-8">
+            <h1>Branches: {branches.length}</h1>
             {branches.map((data,index)=>{
                 return(
-                    <li key={index}>{data.name}</li>
+                    <li className="mt-4" key={index}>{data.name}</li>
                 )
             })}
         </div>
 
 
-    </>)
+    </div>)
 }
 
 
