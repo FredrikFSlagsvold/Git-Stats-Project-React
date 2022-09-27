@@ -1,34 +1,60 @@
 import { useEffect, useState } from "react";
-import { getMembers } from "../utils/fetch";
+import { getMembers, getCommits } from "../utils/fetch";
 
 
 type Members = {
     setPersonID: React.Dispatch<React.SetStateAction<number>>
+    setUsername: React.Dispatch<React.SetStateAction<string>>
+    setName: React.Dispatch<React.SetStateAction<string>>
     id: number
+    username: string; 
     name?: string;
     access_level?: number;
 }
 
+type Branch = {
+    name: string
+    commit: Commit
+}
 
-export default function Header({name, setPersonID}: Members){
-    const [members, setMembers] = useState<Members[]>([]); 
-    const fetchMembers= () => {
-        getMembers().then((res)=> setMembers(res))
+type Commit ={
+    title: string
+    author_name: string
+    setAuthorName: React.Dispatch<React.SetStateAction<string>>
+}
+
+type Author = {
+    name: string
+}
+
+
+export default function Header({author_name, setAuthorName}: Commit){
+    const [commits, setCommits] = useState<Commit[]>([]); 
+    const fetchCommits= () => {
+        getCommits().then((res)=> setCommits(res))
     }
 
     useEffect(() => {
-        fetchMembers();
+        fetchCommits();
     }, [])
 
-    const students = members.filter(member => member.access_level == 40 )
+
+    const authors = commits.map(commit => commit.author_name)
+    const uniqeAuthors = authors.filter((item,index) => {
+        return authors.indexOf(item) === index
+    });
 
     return(
         <div>
             <h1>GIT Stat</h1>
-            {students.map((member, index) => 
-                <button key={index} onClick={()=> setPersonID(member.id)
-                }>{member.name}</button>
+            <button onClick={() => setAuthorName("All")}>Show for all</button>
+            {uniqeAuthors.map((author, index) => 
+                <button key={index} onClick={()=> {setAuthorName(author)}
+                }>{author}</button>
                 )}
+
         </div>
     )
 }
+
+

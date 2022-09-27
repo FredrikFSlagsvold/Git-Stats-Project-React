@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import StatsPage from './sections/StatsPage';
 import Header from './components/Header';
 
 function App() {
 
+const [authorName, setAuthorName] = useState("All"); 
 
-const [personID, setPersonID] = useState(0);
 
 
   return (
     <div >
-      <Header setPersonID={setPersonID} id={0}/>
-  
-      <StatsPage person={personID}/>
+      <Header title={""} setAuthorName={setAuthorName} author_name={""}/> 
+      <StatsPage authorName={authorName}/> 
     </div>
   );
 }
