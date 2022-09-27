@@ -35,7 +35,7 @@ export default function StatsPage({authorName}: StatsPageProps){
     {authorName === "All" && 
     <div className="flex flex-row p-16 text-left">
         <div className="px-8">
-            <h1>Commits: {commits.length}</h1>
+            <h1 >Commits: {commits.length}</h1>
             {commits.map((data,index)=>{
                 return(
                     <li className="mt-4" key={index}>{data.title}</li>
@@ -45,8 +45,8 @@ export default function StatsPage({authorName}: StatsPageProps){
         </div>
         }
 
-{authorName !== "All" && <div className="px-8">        
-            <div>
+{authorName !== "All" && <div className="flex flex-row p-16 text-left">        
+            <div className="px-8">
             <h1>Commits: {filterCommits.length}</h1>
             {filterCommits.map((data,index)=>{
                 return(

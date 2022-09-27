@@ -1,30 +1,11 @@
 import { useEffect, useState } from "react";
-import { getMembers, getCommits } from "../utils/fetch";
+import { getCommits } from "../utils/fetch";
 
-
-type Members = {
-    setPersonID: React.Dispatch<React.SetStateAction<number>>
-    setUsername: React.Dispatch<React.SetStateAction<string>>
-    setName: React.Dispatch<React.SetStateAction<string>>
-    id: number
-    username: string; 
-    name?: string;
-    access_level?: number;
-}
-
-type Branch = {
-    name: string
-    commit: Commit
-}
 
 type Commit ={
     title: string
     author_name: string
     setAuthorName: React.Dispatch<React.SetStateAction<string>>
-}
-
-type Author = {
-    name: string
 }
 
 
@@ -46,10 +27,10 @@ export default function Header({author_name, setAuthorName}: Commit){
 
     return(
         <div>
-            <h1>GIT Stat</h1>
-            <button onClick={() => setAuthorName("All")}>Show for all</button>
+            <p className="text-xl">GIT Stat</p>
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-2 rounded" onClick={() => setAuthorName("All")}>Show for all</button>
             {uniqeAuthors.map((author, index) => 
-                <button key={index} onClick={()=> {setAuthorName(author)}
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-2 rounded" key={index} onClick={()=> {setAuthorName(author)}
                 }>{author}</button>
                 )}
 
