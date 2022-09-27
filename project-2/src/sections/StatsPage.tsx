@@ -50,7 +50,7 @@ export default function StatsPage({authorName}: StatsPageProps){
             <h1>Commits: {filterCommits.length}</h1>
             {filterCommits.map((data,index)=>{
                 return(
-                    <li key={index}>{data.title}</li>
+                    <li className="mt-4" key={index}>{data.title}</li>
                 )
             })}
         </div></div>}
