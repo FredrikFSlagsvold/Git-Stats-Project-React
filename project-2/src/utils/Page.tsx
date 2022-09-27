@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { Doughnut } from "react-chartjs-2";
 import { getMergeRequests, getIssues} from '../utils/fetch';
 import CommitsInfo from "./CommitsInfo";
+import DouchnutChart from "./Doughnut";
 
 type MergeRequest = {
     id: string,
@@ -44,6 +46,7 @@ export default function Page() {
                 })}
             </p>
             <CommitsInfo/>
+            <DouchnutChart />
             
           
 
@@ -53,6 +56,7 @@ export default function Page() {
                 {filtered.title}
             </li>
         ))} */}
+        
         </div>
     )
 }

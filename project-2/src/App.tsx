@@ -10,7 +10,6 @@ function App() {
         
       <Page />
       </header>
-      <Bar />
     </div>
   );
 }
