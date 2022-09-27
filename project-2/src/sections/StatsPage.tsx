@@ -15,7 +15,6 @@ type Commit = {
 type StatsPageProps={
     authorName: string
 
-
 }
 
 export default function StatsPage({authorName}: StatsPageProps){    
@@ -32,23 +31,23 @@ export default function StatsPage({authorName}: StatsPageProps){
     const filterCommits = commits.filter(commit => commit.author_name === authorName)
 
 
-    return(<>
+    return(<div>
     {authorName === "All" && 
-    <div>
-        <div>
-            <h3>Commits: {commits.length}</h3>
+    <div className="flex flex-row p-16 text-left">
+        <div className="px-8">
+            <h1>Commits: {commits.length}</h1>
             {commits.map((data,index)=>{
                 return(
-                    <li key={index}>{data.title}</li>
+                    <li className="mt-4" key={index}>{data.title}</li>
                 )
             })}
         </div>
         </div>
         }
 
-{authorName !== "All" && <div>        
+{authorName !== "All" && <div className="px-8">        
             <div>
-            <h3>Commits: {filterCommits.length}</h3>
+            <h1>Commits: {filterCommits.length}</h1>
             {filterCommits.map((data,index)=>{
                 return(
                     <li key={index}>{data.title}</li>
@@ -56,7 +55,7 @@ export default function StatsPage({authorName}: StatsPageProps){
             })}
         </div></div>}
 
-    </>)
+    </div>)
 }
 
 
