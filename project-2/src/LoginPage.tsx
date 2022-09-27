@@ -31,9 +31,8 @@ export default function LoginPage({
           }
           });
         sessionStorage.setItem("isLoggedIn", "true")
-        console.log(await testAxiosInstance.get("members"))
       }catch{
-        console.log("feilet")
+ 
       }
     }
 
@@ -41,18 +40,18 @@ export default function LoginPage({
     <div className="App">
       <div className="login-container">
           <form className="form">
-            <p>Please enter prosject ID and access key!</p>
+            <p>Please enter project ID and access key!</p>
             <input
               type="number"
-              placeholder="prosject id"
+              placeholder="Project ID"
               onChange={event => setId(event.target.value)}
             />
             <input
               type="password"
-              placeholder="access key"
+              placeholder="Access key"
               onChange={event => setToken(event.target.value)}
             />
-            <button type="button" onClick={checkApi}>Legg til</button>
+            <button type="button" onClick={checkApi}>Log in</button>
           </form>
       </div>
     </div>

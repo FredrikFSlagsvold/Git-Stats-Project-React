@@ -1,69 +1,59 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {getBranches, getCommits, getIssues } from "../utils/fetch";
 
 
-type Issues ={
-    title: string
-    
-}
-
-type Branches={
+type Branch={
     name: string
+    commit: Commit
 }
 
+type Commit = {
+    author_name: string
+    title: string
+}
 
-export default function StatsPage(){    
-    const [issues, setIssues] = useState<Issues[]>([])
-    const [commits, setCommits] = useState<Issues[]>([])
-    const [branches, setBranches] = useState<Branches[]>([])
+type StatsPageProps={
+    authorName: string
 
+}
 
-    const fetchIssues = () => {
-        getIssues().then((res)=> setIssues(res))
-    }
+export default function StatsPage({authorName}: StatsPageProps){    
+    const [commits, setCommits] = useState<Commit[]>([])
+
     const fetchCommits = () => {
         getCommits().then((res)=> setCommits(res))
     }
-    const fetchBranches = () =>{
-        getBranches().then((res)=> setBranches(res))
-    }
 
     useEffect(()=>{
-        fetchIssues();
         fetchCommits();
-        fetchBranches();
     }, [])
 
-    
-    return(<div className="flex flex-row p-16 text-left">
-        <div className="px-8">
+    const filterCommits = commits.filter(commit => commit.author_name === authorName)
 
-            <h1>Issues created: {issues.length}</h1>
-            {issues.map((data,index)=> {
-                return(
-                    <li className="mt-4" key={index}>{data.title}</li>
-                )
-            })}
-        </div>
 
+    return(<div>
+    {authorName === "All" && 
+    <div className="flex flex-row p-16 text-left">
         <div className="px-8">
-            <h1>Commits: {commits.length}</h1>
+            <h1 >Commits: {commits.length}</h1>
             {commits.map((data,index)=>{
                 return(
                     <li className="mt-4" key={index}>{data.title}</li>
                 )
             })}
         </div>
+        </div>
+        }
 
-        <div className="px-8">
-            <h1>Branches: {branches.length}</h1>
-            {branches.map((data,index)=>{
+{authorName !== "All" && <div className="flex flex-row p-16 text-left">        
+            <div className="px-8">
+            <h1>Commits: {filterCommits.length}</h1>
+            {filterCommits.map((data,index)=>{
                 return(
-                    <li className="mt-4" key={index}>{data.name}</li>
+                    <li className="mt-4" key={index}>{data.title}</li>
                 )
             })}
-        </div>
-
+        </div></div>}
 
     </div>)
 }

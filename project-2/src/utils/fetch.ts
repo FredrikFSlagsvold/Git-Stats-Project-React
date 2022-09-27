@@ -8,21 +8,19 @@ export async function getIssues(){
     return issues.data
 }
 
-
 //commits in the project
 export async function getCommits(){
     const commits = await axiosInstance.get("repository/commits")
     return commits.data
 }
 
-//TEST
-//all members in the projects, 
-export async function getProfile () {
-    const profile = await axiosInstance.get("members")
-    return profile.data
+//members
+export async function getMembers(){
+    const members = await axiosInstance.get("members/all")
+    return members.data
 }
 
-//brnaches in the project, funker ikke?
+//brnaches in the project
 export async function getBranches() {
     const branches = await axiosInstance.get("repository/branches")
     return branches.data
