@@ -41,7 +41,7 @@ export default function LoginPage({
     <div className="App">
       <div className="login-container">
           <form className="form">
-            <p> Please enter prosject ID and access key!</p>
+            <p>Please enter prosject ID and access key!</p>
             <input
               type="number"
               placeholder="prosject id"
