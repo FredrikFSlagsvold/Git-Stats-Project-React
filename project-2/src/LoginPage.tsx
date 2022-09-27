@@ -4,6 +4,8 @@ import "./styles.css";
 import axiosInstance from "./utils/axios";
 
 
+//finn en måte å refetche siden på, så funker alt som det skal
+
 type LoginPageProps= {
     isLoggedIn: Dispatch<SetStateAction<boolean>>
 }
@@ -28,19 +30,13 @@ export default function LoginPage({
               Authorization: "Bearer " +token
           }
           });
-        
-        isLoggedIn(true)
+        sessionStorage.setItem("isLoggedIn", "true")
         console.log(await testAxiosInstance.get("members"))
       }catch{
         console.log("feilet")
       }
     }
 
-    useEffect(()=>{
-      console.log("hei")
-      console.log(axiosInstance.getUri())
-    }, [id])
-  
   return (
     <div className="App">
       <div className="login-container">

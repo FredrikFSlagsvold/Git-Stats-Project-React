@@ -7,11 +7,11 @@ import StatsPage from './sections/StatsPage';
 
 function App() {
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(true)
   console.log(isLoggedIn)
   return (
     <div >
-      {isLoggedIn ? 
+      {sessionStorage.getItem("isLoggedIn") === "true" ? 
       <StatsPage/> :
       <LoginPage isLoggedIn={setIsLoggedIn} />}
     </div>
