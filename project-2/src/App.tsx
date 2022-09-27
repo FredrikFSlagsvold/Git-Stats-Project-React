@@ -1,6 +1,7 @@
 import React from 'react';
 import { getMergeRequests } from './utils/fetch';
 import Page from './utils/Page';
+import Bar from './utils/BarChart';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
         
       <Page />
       </header>
+      <Bar />
     </div>
   );
 }
