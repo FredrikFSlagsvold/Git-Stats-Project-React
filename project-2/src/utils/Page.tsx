@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getMergeRequests, getIssues} from '../utils/fetch';
 import BarChart from "./BarChart";
+import CommitsInfo from "./CommitsInfo";
 import DoughnutChart from "./Doughnut";
 
 type MergeRequest = {
@@ -44,7 +45,7 @@ export default function Page() {
                 )
                 })}
             </p> */}
-            {/* <CommitsInfo/> */}
+            <CommitsInfo/>
             <BarChart/>
             <DoughnutChart/>
             

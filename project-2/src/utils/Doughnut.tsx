@@ -3,10 +3,11 @@ import 'chart.js/auto';
 
 function DoughnutChart () {
 const data = {
-    label: ['red', 'blue', 'yellow', 'green', 'purple', 'Orange'],
+    labels: ['red', 'blue', 'yellow', 'green', 'purple', 'Orange'],
     datasets: [
         {
-        data: '[12, 19, 3, 5, 2, 3]'
+        data: [12, 19, 3, 5, 2, 3]
+    
         }],
     };
 
