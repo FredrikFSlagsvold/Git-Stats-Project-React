@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import { Bar, Line } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 import { getCommits } from '../utils/fetch';
 import 'chart.js/auto';
 
@@ -54,6 +54,12 @@ export default function BarChart() {
         ],
       };
 
-    return <div><Bar options = {options} data = {data}  /> </div>
+    return (
+    <div>
+
+      <Bar options = {options} data = {data}  /> 
+    </div>
+
+    )
 
 }

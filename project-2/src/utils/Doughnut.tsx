@@ -1,9 +1,14 @@
 import { Doughnut } from "react-chartjs-2"
 import 'chart.js/auto';
 
-function DoughnutChart () {
+type CommitProps = {
+    author_name: string;
+}
+
+
+function DoughnutChart (props: CommitProps) {
 const data = {
-    labels: ['red', 'blue', 'yellow', 'green', 'purple', 'Orange'],
+    labels: [props.author_name],
     datasets: [
         {
         data: [12, 19, 3, 5, 2, 3]

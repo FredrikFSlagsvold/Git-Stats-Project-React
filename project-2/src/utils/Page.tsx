@@ -47,7 +47,7 @@ export default function Page() {
             </p> */}
             <CommitsInfo/>
             <BarChart/>
-            <DoughnutChart/>
+            {/* <DoughnutChart/> */}
             
           
 
