@@ -36,20 +36,22 @@ export default function BarChart() {
           },
         },
     };
-      
+
+      const Authors = Array.from(new Set(commits?.map(commit => commit.author_name)))
+
+      const NicoCommits = commits.filter((commit) => commit.author_name.includes("Nicolai")).length
+      const MarianneCom = commits.filter((commit) => commit.author_name.includes("Marianne") || commit.author_name.includes("maribsta")).length
+      const FredCom = commits.filter((commit) => commit.author_name.includes("Fredrik")).length
+
+
 
       const data = {
-        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        labels: Authors,
         datasets: [
           {
-            label: 'Dataset 1',
-            data: [100, 340, 605, 908, 506, 807, 506, 78],
+            label: 'Commits',
+            data: [NicoCommits, MarianneCom, 0, FredCom],
             backgroundColor: 'rgba(255, 99, 132, 0.5)',
-          },
-          {
-            label: 'Dataset 2',
-            data: [100, 340, 605, 908, 506, 807, 506, 78],
-            backgroundColor: 'rgba(255,99,132,0.5)',
           },
         ],
       };
