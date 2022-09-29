@@ -12,7 +12,7 @@ type Commit = {
 }
 
 
-export default function BarChart( ) {
+export default function BarChart( {authorList, dataList}) {
 
     const [commits, setCommits] = useState<Commit[]>([]);
 
@@ -45,11 +45,11 @@ export default function BarChart( ) {
 
 
       const data = {
-        labels: Authors,
+        labels: {authorList},
         datasets: [
           {
             label: 'Commits',
-            data: [NicoCommits, MarianneCom, 0, FredCom],
+            data: {dataList},
             backgroundColor: 'rgba(255, 99, 132, 0.5)',
           },
         ],
@@ -58,7 +58,7 @@ export default function BarChart( ) {
     return (
     <div>
 
-      <Bar options = {options} data = {data}  /> 
+      <Bar options={options} data={data}/> 
     </div>
 
     )
