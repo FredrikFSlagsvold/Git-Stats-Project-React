@@ -43,8 +43,6 @@ export default function Page() {
     const fetchMergeRequests = () => getMergeRequests().then(response => { setMergeRequests(response) })
     const fetchIssues = () => getIssues().then(issue => { setIssues(issue) })
 
-    // const Authors = Array.from(new Set(issues?.map(issue => issue.author_name)))
-
     useEffect(() => {
         fetchMergeRequests();
         fetchIssues();
@@ -52,6 +50,7 @@ export default function Page() {
     }, [])
 
     const AuthorList = Array.from(new Set(issues?.map((issue) => issue.author.name)))
+
     const filteredCommits = commits.filter((commit) => commit.author_name.includes(currentAuthor))
     
     return( 
@@ -77,14 +76,15 @@ export default function Page() {
 
             <ul style={{display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', listStyle: 'none'}}>
                 {AuthorList.map((author) => { return (
-                <li style={{height: '40px', backgroundColor: 'red',cursor: 'pointer'}} onClick= {() => setCurrentAuthor(author)}>
+                <button style={{color: 'white',height: '50px', width: '150px', backgroundColor: 'black', borderRadius: '10px',cursor: 'pointer', textAlign: 'center'}} onClick= {() => setCurrentAuthor(author)}>
                     {author}
-                </li>
+                </button>
                 )})}
             </ul>
 
-            <ul style={{display:'flex', justifyContent: 'space-between', flexWrap: 'wrap', listStyle: 'none'}}>{filteredCommits.map((commit) => { return (
-                <li style={{height: '100px', width: '200px', backgroundColor: 'grey', margin: '15px'}}>
+            <ul style={{display:'flex', justifyContent: 'space-between', flexWrap: 'wrap', listStyle: 'none'}}>
+                {filteredCommits.map((commit) => { return (
+                <li style={{borderRadius: '8px', height: '100px', width: '200px', backgroundColor: 'grey', margin: '15px', textAlign: 'center'}}>
                     {commit.title}</li>
             )})}
             </ul>

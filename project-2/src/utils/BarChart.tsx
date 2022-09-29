@@ -12,8 +12,7 @@ type Commit = {
 }
 
 
-
-export default function BarChart() {
+export default function BarChart( ) {
 
     const [commits, setCommits] = useState<Commit[]>([]);
 
