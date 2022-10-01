@@ -12,7 +12,7 @@ export default function BarChart({authorList, dataList}: {authorList: Array<stri
           },
           title: {
             display: true,
-            text: 'Chart.js Bar Chart',
+            text: 'Overview',
           },
         },
     }
@@ -23,14 +23,14 @@ export default function BarChart({authorList, dataList}: {authorList: Array<stri
           {
             label: 'Commits',
             data: dataList,
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
           },
         ],
       }
 
     return (
     <div>
-      <Bar 
+      <Bar
       data={data}
       options = {options}/> 
     </div>

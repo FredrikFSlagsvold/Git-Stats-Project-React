@@ -42,15 +42,22 @@ export default function Page() {
         fetchCommits();
     }, [])
 
-    const AuthorList = Array.from(new Set(issues?.map((issue) => issue.author.name)))
+    //Sortert liste over brukere
+    const AuthorList = Array.from(new Set(commits?.map((commit) => commit.author_name)))
+
+    //Commits per bruker
+    const barData = []
+
+    for (let i = 0; i < AuthorList.length; i++) {
+        barData.push(commits.filter((commit) => commit.author_name === AuthorList[i]).length)
+    }
 
     const filteredCommits = commits.filter((commit) => commit.author_name.includes(currentAuthor))
-    const barData = []
-    
+
     return( 
         <div>
 
-            {/* <h1>Merge requests: {mergeRequests.length}</h1>
+            <h1>Merge requests: {mergeRequests.length}</h1>
             <p> {mergeRequests.map((mergeRequest, index) => { 
                 return(
                     <h3 key = {index}>{mergeRequest.description}</h3>
@@ -64,8 +71,7 @@ export default function Page() {
                     <h3 key = {index}>{issue.title}</h3>
                 )
                 })}
-            </p> */}
-            {/* <CommitsInfo/> */}
+            </p>
 
 
             <ul style={{display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', listStyle: 'none'}}>
@@ -83,8 +89,7 @@ export default function Page() {
                     {commit.title}</li>
             )})}
             </ul>
-            <p>{filteredCommits.length}</p>
-            <BarChart dataList = {[1,3,4,5]} authorList = {AuthorList}/>
+            <BarChart dataList = {barData} authorList = {AuthorList}/>
 
         </div>
     )
