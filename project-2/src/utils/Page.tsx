@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import { getMergeRequests, getIssues, getCommits} from '../utils/fetch';
 import BarChart from "./BarChart";
 
-
-
 type Commit = {
     id: string,
     title: string
@@ -28,11 +26,6 @@ type Author = {
     name: string
 }
 
-
-
-
-
-
 export default function Page() {
     const [currentAuthor, setCurrentAuthor] = useState<string>("");
     const [mergeRequests, setMergeRequests] = useState<MergeRequest[]>([]);
@@ -52,6 +45,7 @@ export default function Page() {
     const AuthorList = Array.from(new Set(issues?.map((issue) => issue.author.name)))
 
     const filteredCommits = commits.filter((commit) => commit.author_name.includes(currentAuthor))
+    const barData = []
     
     return( 
         <div>
@@ -76,7 +70,8 @@ export default function Page() {
 
             <ul style={{display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', listStyle: 'none'}}>
                 {AuthorList.map((author) => { return (
-                <button style={{color: 'white',height: '50px', width: '150px', backgroundColor: 'black', borderRadius: '10px',cursor: 'pointer', textAlign: 'center'}} onClick= {() => setCurrentAuthor(author)}>
+                <button style={{color: 'white',height: '50px', width: '150px', backgroundColor: 'black', borderRadius: '10px',cursor: 'pointer', textAlign: 'center'}} 
+                onClick= {() => setCurrentAuthor(author)}>
                     {author}
                 </button>
                 )})}
@@ -88,8 +83,8 @@ export default function Page() {
                     {commit.title}</li>
             )})}
             </ul>
-            <BarChart/>
-            {/* <DoughnutChart/> */}
+            <p>{filteredCommits.length}</p>
+            <BarChart dataList = {[1,3,4,5]} authorList = {AuthorList}/>
 
         </div>
     )
