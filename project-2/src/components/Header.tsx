@@ -3,9 +3,9 @@ import { getCommits } from "../utils/fetch";
 
 
 type Commit ={
-    title: string
-    author_name: string
-    setAuthorName: React.Dispatch<React.SetStateAction<string>>
+    title?: string
+    author_name?: string
+    setAuthorName?: React.Dispatch<React.SetStateAction<string | undefined>>
 }
 
 
@@ -27,13 +27,16 @@ export default function Header({author_name, setAuthorName}: Commit){
 
     return(
         <div>
+        
             <p className="text-xl">GIT Stat</p>
+            {setAuthorName &&
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-2 rounded" onClick={() => setAuthorName("All")}>Show for all</button>
-            {uniqeAuthors.map((author, index) => 
+            }
+            {setAuthorName && uniqeAuthors.map((author, index) => 
                 <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-2 rounded" key={index} onClick={()=> {setAuthorName(author)}
                 }>{author}</button>
                 )}
-
+            
         </div>
     )
 }
