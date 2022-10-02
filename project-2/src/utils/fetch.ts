@@ -1,16 +1,29 @@
-import axiosInstance from "./axios"
+import axiosInstance from "./axios";
 
-export async function getMergeRequests() {
-    const mergeRequests = await axiosInstance.get("merge_requests");
-    return mergeRequests.data;
-}
 
+//IS USED
+//issues in the project
 export async function getIssues(){
-    const issues = await axiosInstance.get("issues");
-    return issues.data;
+    const issues = await axiosInstance.get("issues")
+    return issues.data
 }
 
-export async  function getCommits() {
+//commits in the project
+export async function getCommits(){
     const commits = await axiosInstance.get("repository/commits")
-    return commits.data;
+    return commits.data
 }
+
+//members
+export async function getMembers(){
+    const members = await axiosInstance.get("members/all")
+    return members.data
+}
+
+//brnaches in the project
+export async function getBranches() {
+    const branches = await axiosInstance.get("repository/branches")
+    return branches.data
+}
+
+
