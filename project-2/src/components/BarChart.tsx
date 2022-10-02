@@ -2,7 +2,12 @@ import { Doughnut } from 'react-chartjs-2';
 import 'chart.js/auto';
 
 
-export default function BarChart({authorList, dataList}: {authorList: Array<string>; dataList: Array<number>;}) {
+type BarChartProps = {
+  authorList: Array<String>
+  dataList: Array<number>
+}
+
+export default function BarChart({authorList, dataList}: BarChartProps) {
 
     const options = {
         responsive: true,
