@@ -32,7 +32,7 @@ export default function Page() {
     const [issues, setIssues] = useState<Issues[]>([]);
     const [commits, setCommits] = useState<Commit[]>([]);
 
-    const fetchCommits = () => getCommits().then(commit => {setCommits(commit)})
+    const fetchCommits = () => getCommits().then(commit => { setCommits(commit) })
     const fetchMergeRequests = () => getMergeRequests().then(response => { setMergeRequests(response) })
     const fetchIssues = () => getIssues().then(issue => { setIssues(issue) })
 

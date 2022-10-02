@@ -1,4 +1,4 @@
-import { Bar } from 'react-chartjs-2';
+import { Doughnut } from 'react-chartjs-2';
 import 'chart.js/auto';
 
 
@@ -30,7 +30,7 @@ export default function BarChart({authorList, dataList}: {authorList: Array<stri
 
     return (
     <div>
-      <Bar
+      <Doughnut
       data={data}
       options = {options}/> 
     </div>
