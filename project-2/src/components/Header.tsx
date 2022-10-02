@@ -27,13 +27,14 @@ export default function Header({author_name, setAuthorName}: Commit){
 
     return(
         <div>
-            <p className="text-xl">GIT Stat</p>
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-2 rounded" onClick={() => setAuthorName("All")}>Show for all</button>
-            {uniqeAuthors.map((author, index) => 
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-2 rounded" key={index} onClick={()=> {setAuthorName(author)}
+            <h1 className="projectTitle">PROJECT 2</h1>
+            <ul className="headerButtons">
+                <button onClick={() => setAuthorName("All")}>Show for all</button>
+                {uniqeAuthors.map((author, index) => 
+                <button key={index} onClick={()=> {setAuthorName(author)}
                 }>{author}</button>
                 )}
-
+            </ul>
         </div>
     )
 }
