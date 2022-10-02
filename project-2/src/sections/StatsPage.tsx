@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
-import {getBranches, getCommits, getIssues } from "../utils/fetch";
+import BarChart from "../components/BarChart";
+import { getCommits } from "../utils/fetch";
 
 
-type Branch={
-    name: string
-    commit: Commit
-}
+
 
 type Commit = {
     author_name: string
@@ -29,6 +27,17 @@ export default function StatsPage({authorName}: StatsPageProps){
     }, [])
 
     const filterCommits = commits.filter(commit => commit.author_name === authorName)
+
+    const AuthorList = Array.from(new Set(commits?.map((commit) => commit.author_name)))
+
+    //Commits per bruker
+    const barData = []
+
+
+    for (let i = 0; i < AuthorList.length; i++) {
+        barData.push(commits.filter((commit) => commit.author_name === AuthorList[i]).length)
+    }
+
 
 
     return(<div>
@@ -55,6 +64,7 @@ export default function StatsPage({authorName}: StatsPageProps){
             })}
         </div></div>}
 
+        <BarChart dataList = {barData} authorList = {AuthorList}/>
     </div>)
 }
 

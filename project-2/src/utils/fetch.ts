@@ -25,5 +25,3 @@ export async function getBranches() {
     const branches = await axiosInstance.get("repository/branches")
     return branches.data
 }
-
-
