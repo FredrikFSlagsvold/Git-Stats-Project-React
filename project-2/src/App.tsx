@@ -25,7 +25,7 @@ export default function App() {
           <ClassContextComponent /> 
           <button onClick={toggleTheme}>DarkMode</button>
           {sessionStorage.getItem("isLoggedIn") === "true" ? <div>
-          {/* <Header title={""} setAuthorName={setAuthorName} author_name={""}/>  */}
+          <Header setAuthorName={setAuthorName} author_name={authorName}/> 
           <StatsPage authorName={authorName}/>
           </div>:
           <LoginPage isLoggedIn={setIsLoggedIn} />}

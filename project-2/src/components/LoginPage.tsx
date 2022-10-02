@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { Dispatch, SetStateAction, useState } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 
 //finn en måte å refetche siden på, så funker alt som det skal
@@ -26,11 +26,20 @@ export default function LoginPage({
               Authorization: "Bearer " + localStorage.getItem("token")
           }
           });
-        sessionStorage.setItem("isLoggedIn", "true")
+          const responseCode = await testAxiosInstance.get("")
+          responseCode.status === 200 && 
+          console.log("rsponskode", responseCode.status)
+          sessionStorage.setItem("isLoggedIn", "true")  
+          window.location.reload();
       }catch{
- 
+        sessionStorage.setItem("isLoggedIn", "false")
+        console.log("feilet")
       }
+      // useEffect()=>({
+
+      // })
     }
+
 
   return (
     <div className="App">
