@@ -15,7 +15,7 @@ type StatsPageProps={
 }
 
 
-export default function StatsPage({authorName}: StatsPageProps){    
+export default function StatsPage({authorName}: StatsPageProps){
     const [commits, setCommits] = useState<Commit[]>([])
 
     const fetchCommits = () => {
@@ -26,7 +26,7 @@ export default function StatsPage({authorName}: StatsPageProps){
         fetchCommits();
     }, [])
 
-   
+
 
     const filterCommits = commits.filter(commit => commit.author_name === authorName)
     const AuthorList = Array.from(new Set(commits?.map((commit) => commit.author_name)))
@@ -42,9 +42,8 @@ export default function StatsPage({authorName}: StatsPageProps){
     const lineData = []
 
     for (let i = 0; i < dateList.length; i++) {
-        lineData.push(commits.filter((commit) => commit.committed_date.substring(0,10) === dateList[i]).length)
+        lineData.push(commits.filter((commit) => (commit.committed_date.substring(0,10) === dateList[i] && commit.author_name=== authorName)).length)
     }
-
 
 
     return(
@@ -56,7 +55,7 @@ export default function StatsPage({authorName}: StatsPageProps){
                 authorName !== "All" && filterCommits.map((commit,index) => <Card key={index} authorName={commit.author_name} title={commit.title} committedDate={commit.committed_date}/> )
                  }
             </div>
-            {authorName === "All" && 
+            {authorName === "All" &&
             <div className="DoughnutChartBox">
                 <DoughnutChart dataList = {barData} authorList = {AuthorList}/>
             </div>

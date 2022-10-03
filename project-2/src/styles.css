@@ -28,6 +28,11 @@
   p {
     margin-top: 0;
   }
+
+  .dark-mode{
+    background-color: gray;
+    height: 100%
+  }
   
   input {
     margin: 15px 0;
@@ -78,6 +83,8 @@
     list-style: none;
     padding: 1rem;
     width: 50%;
+    height: 808px;
+    overflow: scroll;
   }
 
   .commitsBox {

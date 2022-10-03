@@ -28,6 +28,8 @@ export default function LineChart({authorList, dataList}: LineChartProps) {
           {
             label: 'Commits',
             data: dataList,
+            fill: false,
+            borderColor: "rgba(75, 192, 192, 0.8)",
             backgroundColor: 'rgba(0, 0, 0, 0.8)',
           },
         ],

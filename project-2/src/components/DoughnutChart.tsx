@@ -60,6 +60,7 @@ export default function DoughnutChart({authorList, dataList}: BarChartProps) {
       data={data}
       options = {options}/> 
     </div>
+
     )
 
 }
