@@ -1,24 +1,36 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import StatsPage from './sections/StatsPage';
 import Header from './components/Header';
-import LoginPage from './LoginPage';
+import LoginPage from './components/LoginPage';
+import DarkThemeComponent from './DarkThemeComponent';
 
-function App() {
+export const ThemeContext = React.createContext(true);
 
-const [authorName, setAuthorName] = useState("All");
-const [isLoggedIn, setIsLoggedIn] = useState(true) 
+export default function App() {
+
+  const [darkTheme, setDarkTheme] = useState(true)
+
+  function toggleTheme(){
+    setDarkTheme((previous)=> !previous)
+  }
+
+  const [authorName, setAuthorName] = useState("All");
+  const [isLoggedIn, setIsLoggedIn] = useState(true) //Kan fjernes
 
 
-  return (
-    <div >
-        
-      {sessionStorage.getItem("isLoggedIn") === "true" ? <div>
-      <Header title={""} setAuthorName={setAuthorName} author_name={""}/> 
-      <StatsPage authorName={authorName}/>
-     </div>:
-      <LoginPage isLoggedIn={setIsLoggedIn} />}
-    </div>
-  );
+    return (
+      <>
+        <ThemeContext.Provider value={darkTheme}> 
+        {/* Endre navn på denne:  */}
+          <DarkThemeComponent /> 
+          <button onClick={toggleTheme}>DarkMode</button>
+          {sessionStorage.getItem("isLoggedIn") === "true" ? <div>
+          <Header setAuthorName={setAuthorName} author_name={authorName}/> 
+          <StatsPage authorName={authorName}/>
+          </div>:
+          <LoginPage isLoggedIn={setIsLoggedIn} />}
+        </ThemeContext.Provider>
+      </>
+    );
 }
 
-export default App;

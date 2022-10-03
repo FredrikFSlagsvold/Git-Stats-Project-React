@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="App"
+>
+  <div
+    className="login-container"
+  >
+    <form
+      className="form"
+    >
+      <p>
+        Please enter project ID and access key!
+      </p>
+      <input
+        onChange={[Function]}
+        placeholder="Project ID"
+        type="number"
+      />
+      <input
+        onChange={[Function]}
+        placeholder="Access key"
+        type="password"
+      />
+      <button
+        onClick={[Function]}
+        type="button"
+      >
+        Log in
+      </button>
+    </form>
+  </div>
+</div>
+`;

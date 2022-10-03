@@ -1,40 +1,45 @@
 import axios from "axios";
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
-import "./styles.css";
-import axiosInstance from "./utils/axios";
 
 
 //finn en måte å refetche siden på, så funker alt som det skal
 
 type LoginPageProps= {
-    isLoggedIn: Dispatch<SetStateAction<boolean>>
+    isLoggedIn?: Dispatch<SetStateAction<boolean>>
 }
 
 
 export default function LoginPage({
     isLoggedIn,
   }: LoginPageProps){
-    const [id, setId] = useState("");
-    const [token, setToken] = useState("");
+    // const [id, setId] = useState("");
+    // const [token, setToken] = useState("");
 
     const checkApi=async ()=>{
-      localStorage.setItem("id", id)
-      localStorage.setItem("token", token)
-
+      
       try{
         const testAxiosInstance = axios.create(
           {
-          baseURL: "https://gitlab.stud.idi.ntnu.no/api/v4/projects/" + id,
+          baseURL: "https://gitlab.stud.idi.ntnu.no/api/v4/projects/" + localStorage.getItem("id"),
           timeout: 3000,
           headers:{
-              Authorization: "Bearer " +token
+              Authorization: "Bearer " + localStorage.getItem("token")
           }
           });
-        sessionStorage.setItem("isLoggedIn", "true")
+          const responseCode = await testAxiosInstance.get("")
+          responseCode.status === 200 && 
+          console.log("rsponskode", responseCode.status)
+          sessionStorage.setItem("isLoggedIn", "true")  
+          window.location.reload();
       }catch{
- 
+        sessionStorage.setItem("isLoggedIn", "false")
+        console.log("feilet")
       }
+      // useEffect()=>({
+
+      // })
     }
+
 
   return (
     <div className="App">
@@ -44,12 +49,13 @@ export default function LoginPage({
             <input
               type="number"
               placeholder="Project ID"
-              onChange={event => setId(event.target.value)}
+      
+      onChange={event => localStorage.setItem("id", event.target.value)}
             />
             <input
               type="password"
               placeholder="Access key"
-              onChange={event => setToken(event.target.value)}
+              onChange={event => localStorage.setItem("token", event.target.value)}
             />
             <button onClick={checkApi}>Log in</button>
           </form>

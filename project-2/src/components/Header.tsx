@@ -3,7 +3,7 @@ import { getCommits } from "../utils/fetch";
 
 
 type Commit ={
-    title: string
+    title?: string
     author_name: string
     setAuthorName: React.Dispatch<React.SetStateAction<string>>
 }
@@ -26,16 +26,20 @@ export default function Header({author_name, setAuthorName}: Commit){
     });
 
     return(
-        <div>
-            <h1 className="projectTitle">PROJECT 2</h1>
-            <ul className="headerButtons">
-                <button className="authorButtons" onClick={() => setAuthorName("All")}>Show for all</button>
-                {uniqeAuthors.map((author, index) => 
-                <button className="authorButtons" key={index} onClick={()=> {setAuthorName(author)}
+        <>       
+            <p className="text-xl">GIT Stat</p>
+            {setAuthorName &&
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-2 rounded" onClick={() => setAuthorName("All")}>Show for all</button>
+            }
+            {setAuthorName && uniqeAuthors.map((author, index) => 
+            
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-2 rounded" key={index} onClick={()=> {setAuthorName(author)}
                 }>{author}</button>
                 )}
-            </ul>
-        </div>
+            
+      
+        </>
+
     )
 }
 
