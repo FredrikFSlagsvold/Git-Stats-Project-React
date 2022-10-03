@@ -1,5 +1,6 @@
 import axios from "axios";
-import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
+import React, { Dispatch, SetStateAction} from "react";
+
 
 
 //finn en måte å refetche siden på, så funker alt som det skal

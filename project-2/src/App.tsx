@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import StatsPage from './sections/StatsPage';
-import Header from './components/Header';
-import LoginPage from './components/LoginPage';
 import DarkThemeComponent from './components/DarkThemeComponent';
 
 export const ThemeContext = React.createContext(true);
