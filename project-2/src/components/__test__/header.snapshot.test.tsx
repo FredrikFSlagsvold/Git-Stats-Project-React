@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
 import renderer from 'react-test-renderer';
-import Header from '../Header';
-import LoginPage from '../LoginPage';
+import Card from '../Card';
 
 
 it('renders correctly', () => {
   const tree = renderer
-    .create(<LoginPage/>)
+    .create(<Card authorName={''} title={''} committedDate={""} />)
     .toJSON();
   expect(tree).toMatchSnapshot();
 });

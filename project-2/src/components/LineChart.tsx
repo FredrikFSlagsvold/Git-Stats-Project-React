@@ -1,13 +1,13 @@
-import { Bar } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
 
 
-type BarChartProps = {
+type LineChartProps = {
   authorList?: Array<String>
   dataList?: Array<number>
 }
 
-export default function BarChart({authorList, dataList}: BarChartProps) {
+export default function LineChart({authorList, dataList}: LineChartProps) {
 
     const options = {
         responsive: true,
@@ -35,11 +35,9 @@ export default function BarChart({authorList, dataList}: BarChartProps) {
 
     return (
     <div>
-      <Bar
+      <Line
       data={data}
       options = {options}/> 
     </div>
-
     )
-
 }

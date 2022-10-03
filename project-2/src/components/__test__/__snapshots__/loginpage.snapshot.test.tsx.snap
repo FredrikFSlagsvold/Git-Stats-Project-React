@@ -24,6 +24,7 @@ exports[`renders correctly 1`] = `
         type="password"
       />
       <button
+        className="authorButtons"
         onClick={[Function]}
         type="button"
       >

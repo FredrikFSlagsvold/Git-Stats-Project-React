@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import {getCommits } from "../utils/fetch";
 import Card from "../components/Card"
 import DoughnutChart from "../components/DoughnutChart";
+import LineChart from "../components/LineChart";
 
 type Commit = {
     author_name: string
@@ -30,7 +31,6 @@ export default function StatsPage({authorName}: StatsPageProps){
 
     const barData = []
 
-
     for (let i = 0; i < AuthorList.length; i++) {
         barData.push(commits.filter((commit) => commit.author_name === AuthorList[i]).length)
     }
@@ -41,13 +41,20 @@ export default function StatsPage({authorName}: StatsPageProps){
         <div className="bothBoxes">
             <div className="listOfCommits">
                 {authorName ==="All" ?
-                 commits.map((commit) => <Card authorName={commit.author_name} title={commit.title} committedDate={commit.committed_date}/> ):
-                authorName !== "All" && filterCommits.map((commit) => <Card authorName={commit.author_name} title={commit.title} committedDate={commit.committed_date}/> )
+                 commits.map((commit,index) => <Card key={index} authorName={commit.author_name} title={commit.title} committedDate={commit.committed_date}/> ):
+                authorName !== "All" && filterCommits.map((commit,index) => <Card key={index} authorName={commit.author_name} title={commit.title} committedDate={commit.committed_date}/> )
                  }
             </div>
+            {authorName === "All" && 
             <div className="DoughnutChartBox">
                 <DoughnutChart dataList = {barData} authorList = {AuthorList}/>
             </div>
+            }
+            {authorName !== "All" &&
+             <div className="DoughnutChartBox">
+             <LineChart dataList = {barData} authorList = {AuthorList}/>
+            </div>
+            }
         </div>
     </div>)
 }

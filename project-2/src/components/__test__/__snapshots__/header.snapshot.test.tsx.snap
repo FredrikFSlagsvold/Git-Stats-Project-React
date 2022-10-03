@@ -2,34 +2,18 @@
 
 exports[`renders correctly 1`] = `
 <div
-  className="App"
+  className="commitsBox"
 >
-  <div
-    className="login-container"
+  <p
+    className="text-xl"
   >
-    <form
-      className="form"
-    >
-      <p>
-        Please enter project ID and access key!
-      </p>
-      <input
-        onChange={[Function]}
-        placeholder="Project ID"
-        type="number"
-      />
-      <input
-        onChange={[Function]}
-        placeholder="Access key"
-        type="password"
-      />
-      <button
-        onSubmit={[Function]}
-        type="submit"
-      >
-        Log in
-      </button>
-    </form>
-  </div>
+     
+  </p>
+  <p>
+    Author: 
+  </p>
+  <p>
+    Commeted at: 
+  </p>
 </div>
 `;

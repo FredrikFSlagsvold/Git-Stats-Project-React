@@ -35,6 +35,10 @@ export default function DoughnutChart({authorList, dataList}: BarChartProps) {
               'rgba(75, 192, 192, 0.5)',
               'rgba(153, 102, 255, 0.5)',
               'rgba(255, 159, 64, 0.5)',
+              'rgba(255, 290, 64, 0.5)',
+              'rgba(203, 290, 64, 0.5)',
+
+
             ],
             borderColor: [
               'rgba(255, 99, 132, 0.6)',
@@ -43,6 +47,8 @@ export default function DoughnutChart({authorList, dataList}: BarChartProps) {
               'rgba(75, 192, 192, 0.6)',
               'rgba(153, 102, 255, 0.6)',
               'rgba(255, 159, 64, 0.6)',
+              'rgba(255, 290, 64, 0.6)',
+              'rgba(203, 290, 64, 0.5)',
             ]
           },
         ],
@@ -54,7 +60,6 @@ export default function DoughnutChart({authorList, dataList}: BarChartProps) {
       data={data}
       options = {options}/> 
     </div>
-
     )
 
 }

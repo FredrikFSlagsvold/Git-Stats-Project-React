@@ -20,12 +20,11 @@ export default function App() {
 
     return (
       <>
-        <ThemeContext.Provider value={darkTheme}> 
-        {/* Endre navn på denne:  */}
-          <DarkThemeComponent /> 
+        <ThemeContext.Provider value={darkTheme}>
+          <DarkThemeComponent />
           <button onClick={toggleTheme}>DarkMode</button>
           {sessionStorage.getItem("isLoggedIn") === "true" ? <div>
-          <Header setAuthorName={setAuthorName} author_name={authorName}/> 
+          <Header setAuthorName={setAuthorName} author_name={authorName}/>
           <StatsPage authorName={authorName}/>
           </div>:
           <LoginPage isLoggedIn={setIsLoggedIn} />}
