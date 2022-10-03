@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {getCommits } from "../utils/fetch";
 import Card from "../components/Card"
 import DoughnutChart from "../components/DoughnutChart";
