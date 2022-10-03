@@ -10,7 +10,7 @@ export async function getIssues(){
 
 //commits in the project
 export async function getCommits(){
-    const commits = await axiosInstance.get("repository/commits")
+    const commits = await axiosInstance.get("repository/commits?per_page=100")
     return commits.data
 }
 

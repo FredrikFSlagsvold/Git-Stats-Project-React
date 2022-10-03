@@ -70,4 +70,107 @@
   .todoItem p {
     margin: 0;
   }
-  
+
+
+  .listOfCommits {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 1rem;
+    width: 50%;
+  }
+
+  .commitsBox {
+    background-color: rgba(196, 193, 193, 0.449);
+    border-radius: 0.25rem;
+    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 10px;
+    border: 1px solid var(--color-gray);
+    border-radius: 8px;
+    height: auto;
+    width: 270px;
+  }
+
+  .DoughnutChartBox {
+    width: 50%;
+    margin-bottom: 20px;
+  }
+
+  .btn, button {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    margin: 0.5rem 1rem 0.5rem 0;
+    font-size: 0.8rem
+  }
+
+  .headerButtons {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .authorButtons {
+    transition-duration: 0.1s;
+  }
+
+  .authorButtons:hover {
+    background-color: rgba(0, 0, 0, 0.735);
+  }
+
+  .projectTitle {
+    text-align: center;
+    width: 100%;
+    font-size: 40px;
+    margin: 30px;
+    justify-content: center;
+    display: flex;
+  }
+
+  .bothBoxes {
+    display: flex;
+    justify-content: space-between;
+  }
+
+
+  @media all and (max-width: 568px) {
+    .bothBoxes {
+      display: inline;
+    }
+    .listOfCommits {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+    }
+    .DoughnutChartBox {
+      width: 100%;
+    }
+
+    .btn, button {
+      height: 10%;
+      width: 70%;
+    }
+
+  }
+
+  @media all and (orientation: landscape) {
+    .bothBoxes {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .commitsBox {
+      width: 90%;
+    }
+  }
