@@ -57,7 +57,7 @@ export default function LoginPage({
               placeholder="Access key"
               onChange={event => localStorage.setItem("token", event.target.value)}
             />
-            <button onClick={checkApi}>Log in</button>
+            <button type="button" onClick={checkApi}>Log in</button>
           </form>
       </div>
     </div>
