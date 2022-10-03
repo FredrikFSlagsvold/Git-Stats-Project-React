@@ -5,7 +5,7 @@ import Card from '../Card';
 
 it('renders correctly', () => {
   const tree = renderer
-    .create(<Card authorName={''} title={''} committedDate={""} />)
+    .create(<Card authorName={''} title={''} comittedDate={""} />)
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
