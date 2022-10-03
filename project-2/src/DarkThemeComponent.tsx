@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import { ThemeContext } from "./App";
 
-export default class ClassContextComponent extends Component {
+export default class DarkThemeComponent extends Component {
     themeStyles(darkTheme: boolean){
         return {
             backgroundColor: darkTheme ? "#333" : "#CCC",
             color: darkTheme ? "#CCC" : "#333",
             padding: "2rem",
-            margin: "2rem"
         }
     }
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import StatsPage from './sections/StatsPage';
 import Header from './components/Header';
 import LoginPage from './components/LoginPage';
-import ClassContextComponent from './ClassContextComponent';
+import DarkThemeComponent from './DarkThemeComponent';
 
 export const ThemeContext = React.createContext(true);
 
@@ -22,7 +22,7 @@ export default function App() {
       <>
         <ThemeContext.Provider value={darkTheme}> 
         {/* Endre navn på denne:  */}
-          <ClassContextComponent /> 
+          <DarkThemeComponent /> 
           <button onClick={toggleTheme}>DarkMode</button>
           {sessionStorage.getItem("isLoggedIn") === "true" ? <div>
           <Header setAuthorName={setAuthorName} author_name={authorName}/> 
