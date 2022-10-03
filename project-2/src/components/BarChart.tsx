@@ -3,8 +3,8 @@ import 'chart.js/auto';
 
 
 type BarChartProps = {
-  authorList: Array<String>
-  dataList: Array<number>
+  authorList?: Array<String>
+  dataList?: Array<number>
 }
 
 export default function BarChart({authorList, dataList}: BarChartProps) {

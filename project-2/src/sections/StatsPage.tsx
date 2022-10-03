@@ -62,7 +62,8 @@ export default function StatsPage({authorName}: StatsPageProps){
                     <li className="mt-4" key={index}>{data.title}</li>
                 )
             })}
-        </div></div>}
+        </div>
+        </div>}
 
         <BarChart dataList = {barData} authorList = {AuthorList}/>
     </div>)
