@@ -26,14 +26,25 @@ export default function StatsPage({authorName}: StatsPageProps){
         fetchCommits();
     }, [])
 
+   
+
     const filterCommits = commits.filter(commit => commit.author_name === authorName)
     const AuthorList = Array.from(new Set(commits?.map((commit) => commit.author_name)))
+    const dateList = Array.from(new Set(commits?.map((commit) => commit.committed_date.substring(0,10))))
+
 
     const barData = []
 
     for (let i = 0; i < AuthorList.length; i++) {
         barData.push(commits.filter((commit) => commit.author_name === AuthorList[i]).length)
     }
+
+    const lineData = []
+
+    for (let i = 0; i < dateList.length; i++) {
+        lineData.push(commits.filter((commit) => commit.committed_date.substring(0,10) === dateList[i]).length)
+    }
+
 
 
     return(
@@ -52,7 +63,7 @@ export default function StatsPage({authorName}: StatsPageProps){
             }
             {authorName !== "All" &&
              <div className="DoughnutChartBox">
-             <LineChart dataList = {barData} authorList = {AuthorList}/>
+             <LineChart dataList = {lineData} authorList = {dateList}/>
             </div>
             }
         </div>
