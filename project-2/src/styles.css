@@ -122,6 +122,7 @@
   }
 
   .authorButtons {
+    background-color: black;
     transition-duration: 0.1s;
   }
 
