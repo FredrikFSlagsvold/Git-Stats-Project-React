@@ -96,6 +96,7 @@
 
   .DoughnutChartBox {
     width: 50%;
+    margin-bottom: 20px;
   }
 
   .btn, button {
@@ -117,6 +118,15 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .authorButtons {
+    transition-duration: 0.1s;
+  }
+
+  .authorButtons:hover {
+    background-color: rgba(0, 0, 0, 0.735);
   }
 
   .projectTitle {
@@ -124,10 +134,43 @@
     width: 100%;
     font-size: 40px;
     margin: 30px;
+    justify-content: center;
+    display: flex;
   }
 
   .bothBoxes {
     display: flex;
     justify-content: space-between;
   }
-  
+
+
+  @media all and (max-width: 568px) {
+    .bothBoxes {
+      display: inline;
+    }
+    .listOfCommits {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+    }
+    .DoughnutChartBox {
+      width: 100%;
+    }
+
+    .btn, button {
+      height: 10%;
+      width: 70%;
+    }
+
+  }
+
+  @media all and (orientation: landscape) {
+    .bothBoxes {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .commitsBox {
+      width: 90%;
+    }
+  }

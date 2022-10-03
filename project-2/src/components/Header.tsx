@@ -29,9 +29,9 @@ export default function Header({author_name, setAuthorName}: Commit){
         <div>
             <h1 className="projectTitle">PROJECT 2</h1>
             <ul className="headerButtons">
-                <button onClick={() => setAuthorName("All")}>Show for all</button>
+                <button className="authorButtons" onClick={() => setAuthorName("All")}>Show for all</button>
                 {uniqeAuthors.map((author, index) => 
-                <button key={index} onClick={()=> {setAuthorName(author)}
+                <button className="authorButtons" key={index} onClick={()=> {setAuthorName(author)}
                 }>{author}</button>
                 )}
             </ul>
