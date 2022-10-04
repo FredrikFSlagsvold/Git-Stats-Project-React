@@ -151,7 +151,7 @@
   }
 
 
-  @media all and (max-width: 1000px) {
+  @media all and (orientation: portrait) {
     .bothBoxes {
       display: inline;
     }
@@ -193,7 +193,7 @@
 
   }
 
-  @media all and (orientation: landscape) and (max-height: 400) {
+  @media all and (orientation: landscape) and (max-width: 400) {
     .bothBoxes {
       display: flex;
       justify-content: space-between;
