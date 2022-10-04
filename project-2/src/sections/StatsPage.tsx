@@ -8,40 +8,26 @@ type Commit = {
     author_name: string
     title: string
     committed_date: string
-}
+  }
 
 type StatsPageProps={
-    authorName: string
-
+    authorName: string,
+    commits: Commit[]
 }
 
-export default function StatsPage({authorName}: StatsPageProps){
-    const [commits, setCommits] = useState<Commit[]>([])
-
-    const fetchCommits = () => {
-        getCommits().then((res)=> setCommits(res))
-    }
-
-    useEffect(()=>{
-        fetchCommits();
-    }, [])
-
-
-
+export default function StatsPage({authorName, commits}: StatsPageProps){
+    
     const filterCommits = commits.filter(commit => commit.author_name === authorName)
-
-    const AuthorList = Array.from(new Set(commits?.map((commit) => commit.author_name)))
+    const authorList = Array.from(new Set(commits?.map((commit) => commit.author_name)))
     const dateList = Array.from(new Set(commits?.map((commit) => commit.committed_date.substring(0,10)))).reverse()
 
 
     const barData = []
-
-    for (let i = 0; i < AuthorList.length; i++) {
-        barData.push(commits.filter((commit) => commit.author_name === AuthorList[i]).length)
+    for (let i = 0; i < authorList.length; i++) {
+        barData.push(commits.filter((commit) => commit.author_name === authorList[i]).length)
     }
 
     const lineData = []
-
     for (let i = 0; i < dateList.length; i++) {
         lineData.push(commits.filter((commit) => (commit.committed_date.substring(0,10) === dateList[i] && commit.author_name=== authorName)).length)
     }
@@ -58,7 +44,7 @@ export default function StatsPage({authorName}: StatsPageProps){
             </div>
             {authorName === "All" &&
             <div className="DoughnutChartBox">
-                <DoughnutChart dataList = {barData} authorList = {AuthorList}/>
+                <DoughnutChart dataList = {barData} authorList = {authorList}/>
             </div>
             }
             {authorName !== "All" &&

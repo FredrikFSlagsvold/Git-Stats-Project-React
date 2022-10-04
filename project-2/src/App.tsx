@@ -16,7 +16,6 @@ export default function App() {
     localStorage.clear();
     window.location.reload();
   }
-
     return (
       <>
         <ThemeContext.Provider value={darkTheme}>
