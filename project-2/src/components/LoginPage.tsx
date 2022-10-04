@@ -6,7 +6,7 @@ export default function LoginPage(){
     const checkApi=async ()=>{
       
       try{
-        const testAxiosInstance = axios.create(
+          const testAxiosInstance = axios.create(
           {
           baseURL: "https://gitlab.stud.idi.ntnu.no/api/v4/projects/" + localStorage.getItem("id"),
           timeout: 3000,
@@ -21,13 +21,13 @@ export default function LoginPage(){
           window.location.reload();
       }catch{
         sessionStorage.setItem("isLoggedIn", "false")
-        throw "Innlogging feilet, om dette vedvarer ring kundeservice, 95834337";
+        console.log("Innlogging feilet, om dette vedvarer ring kundeservice, 95834337");
       }
     }
 
 
   return (
-    <div className="App">
+    <div className="app">
       <div className="login-container">
           <form className="form">
             <p>Please enter project ID and access key!</p>

@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { getCommits } from "../utils/fetch";
+import React from "react";
 import "../styles.css"
 
 type Commit = {

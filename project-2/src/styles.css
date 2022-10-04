@@ -2,7 +2,7 @@ html, body {
   margin: 0;
 }
 
-.App {
+.app {
     text-align: center;
     display: flex;
     align-content: center;
@@ -10,12 +10,9 @@ html, body {
     margin-top: 100px;
   }
   
-  .App-Column {
-    flex-direction: column;
-  }
-  
   .login-container {
     width: 400px;
+    padding-bottom: 500px;
   }
   
   .form {
@@ -38,45 +35,7 @@ html, body {
     margin: 15px 0;
     padding: 10px;
   }
-  
-  .submit {
-    padding: 10px;
-  }
-  
-  .error {
-    color: red;
-    font-weight: bold;
-  }
-  
-  .useContext {
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-    margin: 20px auto 500px;
-  }
-  
-  .todoContainer {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-  }
-  
-  .todoItem {
-    border: 1px solid #eee;
-    margin: 10px 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-  }
-  
-  .todoItem p {
-    margin: 0;
-  }
-
-
+ 
   .listOfCommits {
     display: flex;
     flex-wrap: wrap;
@@ -85,6 +44,7 @@ html, body {
     width: 60%;
     height: 670px;
     overflow: scroll;
+    justify-content: center;
   }
 
   .commitsBox {
@@ -101,7 +61,7 @@ html, body {
     width: 270px;
   }
 
-  .DoughnutChartBox {
+  .doughnutChartBox {
     width: 40%;
     margin-bottom: 20px;
   }
@@ -142,7 +102,6 @@ html, body {
     background-color: #333;
   }
 
-
   .authorButtons {
     background-color: black;
     transition-duration: 0.1s;
@@ -171,13 +130,11 @@ html, body {
       display: inline;
     }
     .listOfCommits {
-      display: flex;
       width: 100%;
-      justify-content: center;
       height: 700px;
-      overflow: scroll;
     }
-    .DoughnutChartBox {
+
+    .doughnutChartBox {
       width: 100%;
     }
 
@@ -189,40 +146,24 @@ html, body {
   }
 
   @media all and (orientation: landscape) and (max-width: 1000px) {
-    .bothBoxes {
-      display: flex;
-      justify-content: space-between;
-    }
-
     .commitsBox {
       width: 90%;
     }
 
     .listOfCommits {
-      display: flex;
       width: 70%;
-      justify-content: center;
       height: 470px;
-      overflow: scroll;
     }
 
   }
 
   @media all and (orientation: landscape) and (max-width: 400) {
-    .bothBoxes {
-      display: flex;
-      justify-content: space-between;
-    }
-
     .commitsBox {
       width: 90%;
     }
 
     .listOfCommits {
-      display: flex;
       width: 70%;
-      justify-content: center;
       height: 200px;
-      overflow: scroll;
     }
   }

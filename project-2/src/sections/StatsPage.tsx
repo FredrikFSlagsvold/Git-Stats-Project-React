@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import {getCommits } from "../utils/fetch";
+import React from "react"
 import Card from "../components/Card"
 import DoughnutChart from "../components/DoughnutChart";
 import LineChart from "../components/LineChart";
@@ -43,12 +42,12 @@ export default function StatsPage({authorName, commits}: StatsPageProps){
                  }
             </div>
             {authorName === "All" &&
-            <div className="DoughnutChartBox">
+            <div className="doughnutChartBox">
                 <DoughnutChart dataList = {barData} authorList = {authorList}/>
             </div>
             }
             {authorName !== "All" &&
-             <div className="DoughnutChartBox">
+             <div className="doughnutChartBox">
              <LineChart dataList = {lineData} authorList = {dateList}/>
             </div>
             }
