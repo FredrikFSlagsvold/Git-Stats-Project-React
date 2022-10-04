@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html, body {
+  margin: 0;
+}
+
 .App {
     text-align: center;
     display: flex;
@@ -148,6 +152,20 @@
   .bothBoxes {
     display: flex;
     justify-content: space-between;
+  }
+
+  .headerBackgroundDark {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: #0000;
+  }
+
+  .headerBackgroundLight {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: #333;
   }
 
 

@@ -19,11 +19,11 @@ export default function App() {
     return (
       <>
         <ThemeContext.Provider value={darkTheme}>
-          <div className='flex justify-center'>
+          <div className={darkTheme ? 'headerBackgroundLight' :'headerBackgroundDark'}>
          <button className='dark-mode' onClick={toggleTheme}>DarkMode</button>
          <button className='dark-mode' onClick={logOut}>Log out</button>
          </div>
-        <DarkThemeComponent />
+        <DarkThemeComponent/>
         </ThemeContext.Provider>
       </>
     );
