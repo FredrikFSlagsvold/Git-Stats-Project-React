@@ -12,6 +12,7 @@ export default function LineChart({authorList, dataList}: LineChartProps) {
 
     const options = {
         responsive: true,
+        aspectRatio: 1,
         plugins: {
           legend: {
             position: 'top' as const,

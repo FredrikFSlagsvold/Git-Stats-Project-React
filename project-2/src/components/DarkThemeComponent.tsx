@@ -11,7 +11,6 @@ export default class DarkThemeComponent extends Component {
         }
     }
 
-
     render(){
         return(
             <ThemeContext.Consumer>

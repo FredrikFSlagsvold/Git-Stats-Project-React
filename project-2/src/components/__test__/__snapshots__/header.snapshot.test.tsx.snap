@@ -6,14 +6,12 @@ exports[`renders correctly 1`] = `
 >
   <p
     className="text-xl"
-  >
-     
-  </p>
+  />
   <p>
     Author: 
   </p>
   <p>
-    Commeted at: 
+    Comitted at: 
   </p>
 </div>
 `;

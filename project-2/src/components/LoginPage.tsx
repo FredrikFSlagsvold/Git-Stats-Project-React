@@ -3,7 +3,6 @@ import React, { Dispatch, SetStateAction} from "react";
 
 
 
-//finn en måte å refetche siden på, så funker alt som det skal
 
 type LoginPageProps= {
     isLoggedIn?: Dispatch<SetStateAction<boolean>>
@@ -13,9 +12,6 @@ type LoginPageProps= {
 export default function LoginPage({
     isLoggedIn,
   }: LoginPageProps){
-    // const [id, setId] = useState("");
-    // const [token, setToken] = useState("");
-
     const checkApi=async ()=>{
       
       try{
@@ -36,9 +32,6 @@ export default function LoginPage({
         sessionStorage.setItem("isLoggedIn", "false")
         console.log("feilet")
       }
-      // useEffect()=>({
-
-      // })
     }
 
 

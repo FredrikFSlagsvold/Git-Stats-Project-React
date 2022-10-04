@@ -31,7 +31,7 @@ export default function StatsPage({authorName}: StatsPageProps){
     const filterCommits = commits.filter(commit => commit.author_name === authorName)
 
     const AuthorList = Array.from(new Set(commits?.map((commit) => commit.author_name)))
-    const dateList = Array.from(new Set(commits?.map((commit) => commit.committed_date.substring(0,10))))
+    const dateList = Array.from(new Set(commits?.map((commit) => commit.committed_date.substring(0,10)))).reverse()
 
 
     const barData = []
@@ -48,7 +48,7 @@ export default function StatsPage({authorName}: StatsPageProps){
 
 
     return(
-    <div>
+  
         <div className="bothBoxes">
             <div className="listOfCommits">
                 {authorName ==="All" ?
@@ -67,7 +67,7 @@ export default function StatsPage({authorName}: StatsPageProps){
             </div>
             }
         </div>
-        </div>
+      
     )
 
 }

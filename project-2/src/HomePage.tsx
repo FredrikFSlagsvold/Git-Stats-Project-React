@@ -10,10 +10,12 @@ export default function HomePage(){
 
 
     return <>
-    {sessionStorage.getItem("isLoggedIn") === "true" ? <div>
+    {sessionStorage.getItem("isLoggedIn") === "true" ? 
+        <div>
           <Header setAuthorName={setAuthorName} author_name={authorName}/>
           <StatsPage authorName={authorName}/>
-          </div>:
-          <LoginPage/>}
+        </div>    
+        :
+        <LoginPage/>}
     </>
 }
