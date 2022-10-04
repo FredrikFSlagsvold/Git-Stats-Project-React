@@ -1,17 +1,8 @@
 import axios from "axios";
-import React, { Dispatch, SetStateAction} from "react";
+import React from "react";
 
-
-
-
-type LoginPageProps= {
-    isLoggedIn?: Dispatch<SetStateAction<boolean>>
-}
-
-
-export default function LoginPage({
-    isLoggedIn,
-  }: LoginPageProps){
+ 
+export default function LoginPage(){
     const checkApi=async ()=>{
       
       try{
@@ -30,7 +21,7 @@ export default function LoginPage({
           window.location.reload();
       }catch{
         sessionStorage.setItem("isLoggedIn", "false")
-        console.log("feilet")
+        throw "Innlogging feilet, om dette vedvarer ring kundeservice, 95834337";
       }
     }
 
@@ -43,8 +34,7 @@ export default function LoginPage({
             <input
               type="number"
               placeholder="Project ID"
-      
-      onChange={event => localStorage.setItem("id", event.target.value)}
+              onChange={event => localStorage.setItem("id", event.target.value)}
             />
             <input
               type="password"

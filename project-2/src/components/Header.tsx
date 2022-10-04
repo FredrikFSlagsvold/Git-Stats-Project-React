@@ -3,7 +3,6 @@ import { getCommits } from "../utils/fetch";
 import "../styles.css"
 
 type Commit ={
-    title?: string
     author_name: string
     setAuthorName: React.Dispatch<React.SetStateAction<string>>
 }
@@ -19,7 +18,6 @@ export default function Header({author_name, setAuthorName}: Commit){
         fetchCommits();
     }, [])
 
-
     const authors = commits.map(commit => commit.author_name)
     const uniqeAuthors = authors.filter((item,index) => {
         return authors.indexOf(item) === index
@@ -32,7 +30,7 @@ export default function Header({author_name, setAuthorName}: Commit){
             <h1 className="projectTitle">{author_name}</h1>}
 
             <ul className="headerButtons">
-                <button className="authorButtons" onClick={() => setAuthorName("All")}>Show for all</button>
+                <button className="allButton" onClick={() => setAuthorName("All")}>Show all commits</button>
                 {uniqeAuthors.map((author, index) => 
                 <button className="authorButtons" key={index} onClick={()=> {setAuthorName(author)}
                 }>{author}</button>
