@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { ThemeContext } from "../App";
-import HomePage from "../HomePage";
+import HomePage from "./HomePage";
 
 export default class DarkThemeComponent extends Component {
     themeStyles(darkTheme: boolean){
@@ -11,14 +11,14 @@ export default class DarkThemeComponent extends Component {
         }
     }
 
-
     render(){
         return(
             <ThemeContext.Consumer>
                 {darkTheme => {
-                    return <div style={this.themeStyles(darkTheme)}>
+                    return (
+                    <div className="darkMode" style={this.themeStyles(darkTheme)}>
                        <HomePage />
-                    </div>
+                    </div>)
                 }}
             </ThemeContext.Consumer>
         )

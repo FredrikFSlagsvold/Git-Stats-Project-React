@@ -1,25 +1,12 @@
 import axios from "axios";
-import React, { Dispatch, SetStateAction} from "react";
+import React from "react";
 
-
-
-//finn en måte å refetche siden på, så funker alt som det skal
-
-type LoginPageProps= {
-    isLoggedIn?: Dispatch<SetStateAction<boolean>>
-}
-
-
-export default function LoginPage({
-    isLoggedIn,
-  }: LoginPageProps){
-    // const [id, setId] = useState("");
-    // const [token, setToken] = useState("");
-
+ 
+export default function LoginPage(){
     const checkApi=async ()=>{
       
       try{
-        const testAxiosInstance = axios.create(
+          const testAxiosInstance = axios.create(
           {
           baseURL: "https://gitlab.stud.idi.ntnu.no/api/v4/projects/" + localStorage.getItem("id"),
           timeout: 3000,
@@ -34,24 +21,20 @@ export default function LoginPage({
           window.location.reload();
       }catch{
         sessionStorage.setItem("isLoggedIn", "false")
-        console.log("feilet")
+        console.log("Innlogging feilet, om dette vedvarer ring kundeservice, 95834337");
       }
-      // useEffect()=>({
-
-      // })
     }
 
 
   return (
-    <div className="App">
+    <div className="app">
       <div className="login-container">
           <form className="form">
             <p>Please enter project ID and access key!</p>
             <input
               type="number"
               placeholder="Project ID"
-      
-      onChange={event => localStorage.setItem("id", event.target.value)}
+              onChange={event => localStorage.setItem("id", event.target.value)}
             />
             <input
               type="password"

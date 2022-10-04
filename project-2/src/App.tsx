@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import DarkThemeComponent from './components/DarkThemeComponent';
 
+
 export const ThemeContext = React.createContext(true);
 
-export default function App() {
 
+export default function App() {
   const [darkTheme, setDarkTheme] = useState(false)
 
   function toggleTheme(){
@@ -15,15 +16,14 @@ export default function App() {
     localStorage.clear();
     window.location.reload();
   }
-
     return (
       <>
         <ThemeContext.Provider value={darkTheme}>
-          <div className='flex justify-center'>
-         <button className='dark-mode' onClick={toggleTheme}>DarkMode</button>
-         <button className='dark-mode' onClick={logOut}>Log out</button>
-         </div>
-        <DarkThemeComponent />
+          <div className= {darkTheme? "headerBackgroundLight" : "headerBackgroundDark"}>
+            <button className='dark-mode' onClick={toggleTheme}>DarkMode</button>
+            <button className='dark-mode' onClick={logOut}>Log out</button>
+          </div>
+          <DarkThemeComponent />
         </ThemeContext.Provider>
       </>
     );
