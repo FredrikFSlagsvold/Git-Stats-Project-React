@@ -3,6 +3,7 @@ import {getCommits } from "../utils/fetch";
 import Card from "../components/Card"
 import DoughnutChart from "../components/DoughnutChart";
 import LineChart from "../components/LineChart";
+import '../styles.css'
 
 type Commit = {
     author_name: string
@@ -31,7 +32,7 @@ export default function StatsPage({authorName}: StatsPageProps){
     const filterCommits = commits.filter(commit => commit.author_name === authorName)
 
     const AuthorList = Array.from(new Set(commits?.map((commit) => commit.author_name)))
-    const dateList = Array.from(new Set(commits?.map((commit) => commit.committed_date.substring(0,10))))
+    const dateList = Array.from(new Set(commits?.map((commit) => commit.committed_date.substring(0,10)))).reverse()
 
 
     const barData = []
@@ -45,7 +46,6 @@ export default function StatsPage({authorName}: StatsPageProps){
     for (let i = 0; i < dateList.length; i++) {
         lineData.push(commits.filter((commit) => (commit.committed_date.substring(0,10) === dateList[i] && commit.author_name=== authorName)).length)
     }
-
 
     return(
     <div>
@@ -63,7 +63,7 @@ export default function StatsPage({authorName}: StatsPageProps){
             }
             {authorName !== "All" &&
              <div className="DoughnutChartBox">
-             <LineChart dataList = {lineData} authorList = {dateList}/>
+             <LineChart dataList = {lineData} dateList = {dateList}/>
             </div>
             }
         </div>

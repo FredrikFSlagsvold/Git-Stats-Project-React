@@ -82,8 +82,8 @@
     flex-wrap: wrap;
     list-style: none;
     padding: 1rem;
-    width: 50%;
-    height: 808px;
+    width: 60%;
+    height: 670px;
     overflow: scroll;
   }
 
@@ -102,7 +102,7 @@
   }
 
   .DoughnutChartBox {
-    width: 50%;
+    width: 40%;
     margin-bottom: 20px;
   }
 
@@ -141,7 +141,6 @@
     text-align: center;
     width: 100%;
     font-size: 40px;
-    margin: 30px;
     justify-content: center;
     display: flex;
   }
@@ -152,7 +151,7 @@
   }
 
 
-  @media all and (max-width: 568px) {
+  @media all and (max-width: 1000px) {
     .bothBoxes {
       display: inline;
     }
@@ -160,6 +159,8 @@
       display: flex;
       width: 100%;
       justify-content: center;
+      height: 300px;
+      overflow: scroll;
     }
     .DoughnutChartBox {
       width: 100%;
@@ -172,7 +173,7 @@
 
   }
 
-  @media all and (orientation: landscape) {
+  @media all and (orientation: landscape) and (max-width: 1000px) {
     .bothBoxes {
       display: flex;
       justify-content: space-between;
@@ -180,5 +181,33 @@
 
     .commitsBox {
       width: 90%;
+    }
+
+    .listOfCommits {
+      display: flex;
+      width: 70%;
+      justify-content: center;
+      height: 470px;
+      overflow: scroll;
+    }
+
+  }
+
+  @media all and (orientation: landscape) and (max-height: 400) {
+    .bothBoxes {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .commitsBox {
+      width: 90%;
+    }
+
+    .listOfCommits {
+      display: flex;
+      width: 70%;
+      justify-content: center;
+      height: 200px;
+      overflow: scroll;
     }
   }

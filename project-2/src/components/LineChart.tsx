@@ -4,14 +4,15 @@ import React from 'react'
 
 
 type LineChartProps = {
-  authorList?: Array<String>
+  dateList?: Array<String>
   dataList?: Array<number>
 }
 
-export default function LineChart({authorList, dataList}: LineChartProps) {
+export default function LineChart({dateList, dataList}: LineChartProps) {
 
     const options = {
         responsive: true,
+        aspectRatio: 1,
         plugins: {
           legend: {
             position: 'top' as const,
@@ -24,7 +25,7 @@ export default function LineChart({authorList, dataList}: LineChartProps) {
     }
 
       const data = {
-        labels: authorList,
+        labels: dateList,
         datasets: [
           {
             label: 'Commits',
